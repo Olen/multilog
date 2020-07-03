@@ -178,23 +178,3 @@ class setup():
         return "\033[101m{}\033[0m".format(s)
 
 
-
-        formatter = logging.Formatter('%(asctime)s :: %(name)s %(levelname)s %(message)s')
-        fileHandler = logging.handlers.TimedRotatingFileHandler(filename=self.log_file, when='midnight', backupCount=self.keep_files)
-        fileHandler.setFormatter(formatter)
-        fileHandler.setLevel(logging.INFO)
-
-        debugHandler = logging.handlers.TimedRotatingFileHandler(filename=self.debug_file, when='midnight', backupCount=self.keep_debug_files)
-        debugHandler.setFormatter(formatter)
-        debugHandler.setLevel(logging.DEBUG)
-
-        streamHandler = logging.StreamHandler()
-        streamHandler.setFormatter(formatter)
-        streamHandler.setLevel(self.log_level)
-        l.addHandler(fileHandler)
-        l.addHandler(debugHandler)
-        l.addHandler(streamHandler)
-
-
-
-
